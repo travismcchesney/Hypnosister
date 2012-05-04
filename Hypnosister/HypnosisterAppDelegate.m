@@ -7,6 +7,7 @@
 //
 
 #import "HypnosisterAppDelegate.h"
+#import "HypnosisView.h"
 
 @implementation HypnosisterAppDelegate
 
@@ -16,8 +17,22 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    CGRect viewFrame = CGRectMake(160, 240, 100, 150);
+    
+    HypnosisView *view = [[HypnosisView alloc] initWithFrame:viewFrame];
+    
+    [[self window] addSubview:view];
+    
+    CGRect anotherFrame = CGRectMake(20, 30, 50, 50);
+    
+    HypnosisView *anotherView = [[HypnosisView alloc] initWithFrame:anotherFrame];
+     
+    [view addSubview:anotherView];
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+
     return YES;
 }
 

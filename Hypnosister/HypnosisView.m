@@ -105,10 +105,11 @@
             withFont:font];
     
     // Add crosshair
-    CGContextSaveGState(ctx);
+    //CGContextSaveGState(ctx);
     
     CGContextSetLineWidth(ctx, 2);
-    CGContextSetFillColorWithColor(ctx, [[UIColor greenColor] CGColor]);
+
+    [[UIColor greenColor] setStroke];
     CGContextMoveToPoint(ctx, center.x, center.y);
     
     CGContextAddLineToPoint(ctx, center.x + 20, center.y);

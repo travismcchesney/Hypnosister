@@ -64,12 +64,22 @@
     
     // Draw concentric circles from the outside in
     for (float currentRadius = maxRadius; currentRadius > 0; currentRadius -= 20) {
+        
+        // Random color - method 1
+        [self setCircleColor:[[UIColor alloc] initWithRed:rand()*100 green:rand()*100 blue:rand()*100 alpha:rand()*100]];
+        [[self circleColor] setStroke];
+        
+        // Random color - method 2
+        //CGContextSetRGBStrokeColor(ctx, rand()*100, rand()*100, rand()*100, rand()*100);
+        
         // Add a path to the context
         CGContextAddArc(ctx, center.x, center.y,
                         currentRadius, 0.0, M_PI * 2, YES);
         
-        // Perform drawing instruction; rempves path
+        // Perform drawing instruction; removes path
         CGContextStrokePath(ctx);
+        
+
     }
     
     // Create a string

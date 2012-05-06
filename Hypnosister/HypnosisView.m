@@ -68,7 +68,7 @@
         CGContextAddArc(ctx, center.x, center.y,
                         currentRadius, 0.0, M_PI * 2, YES);
         
-        // Perform drawing instruction; rempves path
+        // Perform drawing instruction; removes path
         CGContextStrokePath(ctx);
     }
     
@@ -103,6 +103,23 @@
     // Draw the string
     [text drawInRect:textRect
             withFont:font];
+    
+    // Add crosshair
+    CGContextSaveGState(ctx);
+    
+    CGContextSetLineWidth(ctx, 2);
+    CGContextSetFillColorWithColor(ctx, [[UIColor greenColor] CGColor]);
+    CGContextMoveToPoint(ctx, center.x, center.y);
+    
+    CGContextAddLineToPoint(ctx, center.x + 20, center.y);
+    CGContextMoveToPoint(ctx, center.x, center.y);
+    CGContextAddLineToPoint(ctx, center.x - 20, center.y);
+    CGContextMoveToPoint(ctx, center.x, center.y);
+    CGContextAddLineToPoint(ctx, center.x, center.y + 20);
+    CGContextMoveToPoint(ctx, center.x, center.y);
+    CGContextAddLineToPoint(ctx, center.x, center.y - 20);
+    
+    CGContextStrokePath(ctx);
 }
 
 @end

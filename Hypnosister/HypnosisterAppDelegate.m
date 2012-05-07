@@ -8,6 +8,7 @@
 
 #import "HypnosisterAppDelegate.h"
 #import "HypnosisView.h"
+#import "BNRLogoClip.h"
 
 @implementation HypnosisterAppDelegate
 
@@ -31,9 +32,11 @@
     
     [[self window] addSubview:scrollView];
     
-    // Create the HypnosisView with a frame that is twice the size of the screen
+    // Create the HypnosisView with a frame that the size of the screen
     CGRect bigRect = screenRect;
     view = [[HypnosisView alloc] initWithFrame:screenRect];
+    
+    [view addSubview:[[BNRLogoClip alloc] init]];
     
     // Add the HypnosisView as a subview of the scrollView instead of the window
     [scrollView addSubview:view];
